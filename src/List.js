@@ -48,14 +48,14 @@ function List({ exercise: {index, name, sets, completed } , onDelete, onEdit}) {
 
 
   return (
-    <div className='d-flex justify-content-center row'>
-      <div className='col'>      
-        <h5 className='text-tron text-regular color-neongreen mx-2'>{name}</h5>
+    <div className='d-flex justify-content-center row border-3 border-neongreen box-neongreen rounded-pill my-4'>
+      <div className='col-5'>      
+        <h5 className='text-regular color-neongreen mx-2'>{name}</h5>
       </div>
-      <div className='col'>      
-      <h5 className='text-tron text-regular color-neongreen mx-2'>{sets}</h5>
+      <div className='col-2'>      
+      <h5 className='text-regular color-neongreen mx-2'>{sets}</h5>
       </div>
-      <div className='col'>      
+      <div className='col-4'>      
       {checked ?
        <button className='bg-transparent border-0' onClick={handleCheck}>
          <FontAwesomeIcon icon={faCircleCheck} className='mx-2 color-neongreen'/>    
@@ -69,6 +69,7 @@ function List({ exercise: {index, name, sets, completed } , onDelete, onEdit}) {
         <FontAwesomeIcon icon={faPencil} className='mx-2 color-neongreen' />
       </button>
       <button className='bg-transparent border-0' onClick = {handleDelete}><FontAwesomeIcon icon={faTrash} className='mx-2 color-neongreen' style={{color: "#ffffff"}} /></button>
+      
       </div>
 
       <Modal isOpen={isModalOpen} className='d-flex justify-content-center flex-column align-items-center bg-shadow w-100 h-100' >
