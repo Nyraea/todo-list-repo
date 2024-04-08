@@ -1,35 +1,38 @@
 
-  import React, { useState } from 'react';
+  import React, { useState, useMemo } from 'react';
   import './global.css';
   import Header from './Header.js';
   import ExerciseForm from './ExerciseForm.js';
   import List from './List.js';
+  import { v4 as uuidv4 } from 'uuid';
   
   function App() {
     const [exercises, setExercises] = useState([]);
     const [sortOrder, setSortOrder] = useState('none');
   
-    const sortedExercises = [...exercises].sort((a, b) => {
-      if (sortOrder === 'asc') {
-        return a.name.localeCompare(b.name);
-      } else if (sortOrder === 'desc') {
-        return b.name.localeCompare(a.name);
-      } else {
-        return 0;
-      }
-    });
+    const sortedExercises = useMemo(() => {
+      return [...exercises].sort((a, b) => {
+        if (sortOrder === 'asc') {
+          return a.name.localeCompare(b.name);
+        } else if (sortOrder === 'desc') {
+          return b.name.localeCompare(a.name);
+        } else {
+          return 0;
+        }
+      });
+    }, [exercises, sortOrder]);
   
     const handleAddExercise = (newExercise) => {
-      setExercises([...exercises, {...newExercise, index: exercises.length}]);
+      setExercises([...exercises, {...newExercise, id: uuidv4()}]);
     };
   
-    const handleDelete = (index) => {
-      setExercises(exercises.filter(exercise => exercise.index !== index));
+    const handleDelete = (id) => {
+      setExercises(exercises.filter(exercise => exercise.id !== id));
     };
-  
+
     const handleEdit = (editedExercise) => {
       setExercises(prevExercises => prevExercises.map(exercise =>
-        exercise.index === editedExercise.index ? editedExercise : exercise
+        exercise.id === editedExercise.id ? { ...editedExercise } : exercise
       ));
     };
   
@@ -61,8 +64,8 @@
             <br/>
             {/* Map each exercise to a List component */}
             {sortedExercises.map((exercise) => (
-              <List key={exercise.index} exercise={exercise} onDelete={() => handleDelete(exercise.index)} onEdit={handleEdit} ></List>
-            ))}
+              <List key={exercise.id} exercise={exercise} onDelete={handleDelete} onEdit={handleEdit} />
+))}
           </div>
           <div className='col'></div>
         </div>

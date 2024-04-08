@@ -9,7 +9,8 @@ import './global.css';
 
 Modal.setAppElement('#root');
 
-function List({ exercise: {index, name, sets, completed } , onDelete, onEdit}) {
+function List({ exercise, onDelete, onEdit}) {
+  const { index, name, sets, completed } = exercise;
   console.log('eggs is', completed); 
   const [checked, setChecked] = useState(completed);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,11 +19,8 @@ function List({ exercise: {index, name, sets, completed } , onDelete, onEdit}) {
 
   useEffect(() => {
     setChecked(completed);
-  }, [completed]);
-
-  useEffect(() => {
     setEditedExercise({ name, sets });
-  }, [name, sets]);
+  }, [exercise]);
 
   const handleCheck = () => {
     setChecked(!checked);
@@ -42,9 +40,10 @@ function List({ exercise: {index, name, sets, completed } , onDelete, onEdit}) {
   };
 
   const handleEditSubmit = () => {
-    onEdit({ ...editedExercise, index });
+    onEdit({ ...exercise, name: editedExercise.name, sets: editedExercise.sets});
     setIsModalOpen(false);
   };
+
 
 
   return (
@@ -68,7 +67,7 @@ function List({ exercise: {index, name, sets, completed } , onDelete, onEdit}) {
       <button onClick={handleEditClick} className='bg-transparent border-0'>
         <FontAwesomeIcon icon={faPencil} className='mx-2 color-neongreen' />
       </button>
-      <button className='bg-transparent border-0' onClick = {handleDelete}><FontAwesomeIcon icon={faTrash} className='mx-2 color-neongreen' style={{color: "#ffffff"}} /></button>
+      <button className='bg-transparent border-0' onClick={() => onDelete(exercise.id)}><FontAwesomeIcon icon={faTrash} className='mx-2 color-neongreen' style={{color: "#ffffff"}} /></button>
       
       </div>
 

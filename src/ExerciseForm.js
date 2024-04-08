@@ -4,13 +4,13 @@ import './global.css';
 function ExerciseForm({ onAddExercise, onClear }) {
   const [exercise, setExercise] = useState('');
   const [sets, setSets] = useState('');
-  const [reps, setReps] = useState('');
+/*   const [reps, setReps] = useState(''); */
   const [completed, setCompleted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Check if any of the fields are empty
-    if (!exercise || !sets || !reps) {
+    if (!exercise || !sets /* || !reps */) {
       alert('Please fill out all fields');
       return;
     }
@@ -18,7 +18,7 @@ function ExerciseForm({ onAddExercise, onClear }) {
     const newExercise = {
       name: exercise,
       sets: parseInt(sets),
-      reps: parseInt(reps),
+/*       reps: parseInt(reps), */
       completed: completed 
     };
    
@@ -26,7 +26,7 @@ function ExerciseForm({ onAddExercise, onClear }) {
     // Reset form fields
     setExercise('');
     setSets('');
-    setReps('');
+/*     setReps(''); */
     setCompleted(false);
   };
 
@@ -38,9 +38,9 @@ function ExerciseForm({ onAddExercise, onClear }) {
     setSets(e.target.value);
   };
 
-  const handleRepsChange = (e) => {
+/*   const handleRepsChange = (e) => {
     setReps(e.target.value);
-  };
+  }; */
 
   const handleCheckboxChange = (e) => {
     setCompleted(e.target.checked);
@@ -78,7 +78,7 @@ function ExerciseForm({ onAddExercise, onClear }) {
           />
         </div>
         <br/>
-        <div className="form-group">
+{/*         <div className="form-group">
           <label htmlFor="repsInput" className="text-tron text-regular color-neongreen"><b>Enter reps</b></label>
           <input
             type="number"
@@ -88,7 +88,7 @@ function ExerciseForm({ onAddExercise, onClear }) {
             value={reps}
             onChange={handleRepsChange}
           />
-        </div>
+        </div> */}
         <br/>
         <div className="d-flex justify-content-center form-check">
           <input
