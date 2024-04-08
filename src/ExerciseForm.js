@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ExerciseForm({ onAddExercise }) {
+function ExerciseForm({ onAddExercise, onClear }) {
   const [exercise, setExercise] = useState('');
   const [sets, setSets] = useState('');
   const [reps, setReps] = useState('');
@@ -43,6 +43,11 @@ function ExerciseForm({ onAddExercise }) {
 
   const handleCheckboxChange = (e) => {
     setCompleted(e.target.checked);
+  };
+
+  const handleClearClick = (event) => {
+    event.preventDefault();
+    onClear();
   };
 
   return (
@@ -95,7 +100,11 @@ function ExerciseForm({ onAddExercise }) {
           <label className="form-check-label text-light" htmlFor="checkboxInput"><b>Completed</b></label>
         </div>
         <br/>
-        <button type="submit" className="btn btn-primary">Add Exercise</button>
+        <button type="submit" className="btn btn-primary mx-auto">Add Exercise</button>
+        <br/>
+        <br/>
+        <button onClick={handleClearClick} className="btn btn-secondary mx-auto">Clear Exercises</button>
+
       </form>
     </div>
   );

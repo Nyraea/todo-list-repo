@@ -2,9 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import { faPencil } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react';
 
-function List({ exercise: { name, sets, completed } }) {
+function List({ exercise: {index, name, sets, completed } , onDelete}) {
   console.log('eggs is', completed); 
   const [checked, setChecked] = useState(completed);
 
@@ -15,6 +16,12 @@ function List({ exercise: { name, sets, completed } }) {
   const handleCheck = () => {
     setChecked(!checked);
   };
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    onDelete(index);
+  };
+
 
   return (
     <div className='d-flex justify-content-center row'>
@@ -31,6 +38,7 @@ function List({ exercise: { name, sets, completed } }) {
        <FontAwesomeIcon icon={faCircle} className='mx-2' style={{color: "#ffffff"}} onClick={handleCheck}/>       
       } 
       <FontAwesomeIcon icon={faPencil} className='mx-2' style={{color: "#ffffff"}} />
+      <a href=''><FontAwesomeIcon icon={faTrash} className='mx-2' style={{color: "#ffffff"}} onClick = {handleDelete} /></a>
       </div>
     </div>
   );

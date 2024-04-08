@@ -12,7 +12,14 @@ function App() {
     setExercises([...exercises, newExercise]);
   
   };
+  const handleDelete = (index) => {
+    setExercises(exercises.filter(exercise => exercise.index == index));
+  };
+
   
+  const handleClear = () => {
+    setExercises([]);
+  };
 
   return (
     <div>
@@ -25,11 +32,11 @@ function App() {
           <br/>
           <br/>
           {/* Pass handleAddExercise as a prop to ExerciseForm */}
-          <ExerciseForm onAddExercise={handleAddExercise}></ExerciseForm>
+          <ExerciseForm onAddExercise={handleAddExercise} onClear={handleClear}></ExerciseForm>
           <br/>
           {/* Map each exercise to a List component */}
           {exercises.map((exercise, index) => (
-            <List key={index} exercise={exercise}></List>
+            <List key={index} exercise={exercise} onDelete={() => handleDelete(index)}></List>
           ))}
         </div>
         <div className='col'></div>
