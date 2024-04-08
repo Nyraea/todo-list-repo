@@ -1,10 +1,11 @@
 import React from 'react';
+import './global.css';
 
 
 function Header() {
   return (
-    <header className='bg-crimson fixed-top text-light d-flex justify-content-center'>
-      <h1>Work It!</h1>
+    <header className='text-light d-flex justify-content-center'>
+      <h1 className='text-tron color-neongreen text-large shadow-neongreen'>Work It</h1>
     </header>
   );
 }

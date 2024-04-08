@@ -5,3 +5,52 @@
 .bg-crimson {
     background-color: #A20000;
 }
+
+.bg-neongreen {
+    background-color: 	#2f8ca3;
+}
+
+.color-neongreen {
+    color: 	#2f8ca3;
+}
+
+.color-shadow {
+    color:#030504;
+}
+
+.bg-shadow {
+    background-color: #030504;
+}
+
+.bg-neonorange {
+    background-color: #f4af2d;
+}
+
+.color-neonorange {
+    color: #f4af2d;
+}
+
+@font-face {
+    font-family: 'Tr2n';
+    src: url('./Tr2n.ttf') format('truetype');
+  }
+
+.text-tron {
+    font-family: 'Tr2n';
+}
+
+.text-large {
+    font-size:5rem;
+}
+
+.border-neonorange {
+    border-color: #f4af2d;
+}
+
+.border-neongreen {
+    border-color: 	#2f8ca3;
+}
+
+.shadow-neongreen {
+    text-shadow: 0 0 10px #2f8ca3, 0 0 20px #2f8ca3, 0 0 30px #2f8ca3, 0 0 40px #2f8ca3;
+  }

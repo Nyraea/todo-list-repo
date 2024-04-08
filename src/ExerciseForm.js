@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './global.css';
 
 function ExerciseForm({ onAddExercise, onClear }) {
   const [exercise, setExercise] = useState('');
@@ -100,10 +101,9 @@ function ExerciseForm({ onAddExercise, onClear }) {
           <label className="form-check-label text-light" htmlFor="checkboxInput"><b>Completed</b></label>
         </div>
         <br/>
-        <button type="submit" className="btn btn-primary mx-auto">Add Exercise</button>
+        <button type="submit" className="d-flex mx-auto bg-transparent border-4 border-neonorange rounded-pill text-tron color-neonorange">Add Exercise</button>
         <br/>
-        <br/>
-        <button onClick={handleClearClick} className="btn btn-secondary mx-auto">Clear Exercises</button>
+        <button onClick={handleClearClick} className="d=flex mx-auto bg-transparent border-4 border-neonorange rounded-pill text-tron color-neonorange">Clear Exercises</button>
 
       </form>
     </div>
