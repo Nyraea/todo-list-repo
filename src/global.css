@@ -11,7 +11,11 @@
 }
 
 .color-neongreen {
-    color: 	#2f8ca3;
+    color: 	#2f8ca3 !important;
+}
+
+.input-neongreen {
+    color: 	#FFF;
 }
 
 .color-shadow {
@@ -43,14 +47,34 @@
     font-size:5rem;
 }
 
+.text-regular {
+    font-size:1.5rem;
+}
+
+.text-small {
+    font-size:1.0rem;
+}
+
 .border-neonorange {
     border-color: #f4af2d;
 }
 
 .border-neongreen {
-    border-color: 	#2f8ca3;
+    border-color: 	#2f8ca3 !important;
 }
 
 .shadow-neongreen {
     text-shadow: 0 0 10px #2f8ca3, 0 0 20px #2f8ca3, 0 0 30px #2f8ca3, 0 0 40px #2f8ca3;
   }
+
+.shadow-neonorange {
+    text-shadow: 0 0 10px #f4af2d, 0 0 20px #f4af2d, 0 0 30px #f4af2d, 0 0 40px #f4af2d;
+}
+
+.box-neonorange { 
+    box-shadow: 0 0 10px #f4af2d, 0 0 10px #f4af2d, 0 0 20px #f4af2d, 0 0 10px #f4af2d;
+}
+
+.box-neongreen {
+    box-shadow: 0 0 3px #2f8ca3, 0 0 7px #2f8ca3, 0 0 5px #2f8ca3, 0 0 3px #2f8ca3;
+}

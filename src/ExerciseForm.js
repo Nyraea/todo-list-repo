@@ -52,13 +52,13 @@ function ExerciseForm({ onAddExercise, onClear }) {
   };
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center flex-column">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="exerciseInput" className="text-light"><b>Enter exercise</b></label>
+          <label htmlFor="exerciseInput" className="text-tron text-regular color-neongreen"><b>Enter exercise</b></label>
           <input
             type="text"
-            className="form-control"
+            className="form-control bg-transparent rounded-pill box-neongreen border-neongreen text-light"
             id="exerciseInput"
             placeholder="Bicep Curls"
             value={exercise}
@@ -67,10 +67,10 @@ function ExerciseForm({ onAddExercise, onClear }) {
         </div>
         <br/>
         <div className="form-group">
-          <label htmlFor="setsInput" className="text-light"><b>Enter sets</b></label>
+          <label htmlFor="setsInput" className="text-tron text-regular color-neongreen"><b>Enter sets</b></label>
           <input
             type="number"
-            className="form-control"
+            className="form-control border-2 bg-transparent rounded-pill box-neongreen border-neongreen text-light"
             id="setsInput"
             placeholder="Enter sets"
             value={sets}
@@ -79,10 +79,10 @@ function ExerciseForm({ onAddExercise, onClear }) {
         </div>
         <br/>
         <div className="form-group">
-          <label htmlFor="repsInput" className="text-light"><b>Enter reps</b></label>
+          <label htmlFor="repsInput" className="text-tron text-regular color-neongreen"><b>Enter reps</b></label>
           <input
             type="number"
-            className="form-control"
+            className="form-control bg-transparent rounded-pill box-neongreen border-neongreen text-light"
             id="repsInput"
             placeholder="Enter reps"
             value={reps}
@@ -90,22 +90,23 @@ function ExerciseForm({ onAddExercise, onClear }) {
           />
         </div>
         <br/>
-        <div className="form-check">
+        <div className="d-flex justify-content-center form-check">
           <input
             type="checkbox"
-            className="form-check-input"
+            className="d-flex mx-2 form-check-input bg-transparent border-2 shadow-neongreen border-neongreen rounded-pill"
             id="checkboxInput"
             checked={completed}
             onChange={handleCheckboxChange}
           />
-          <label className="form-check-label text-light" htmlFor="checkboxInput"><b>Completed</b></label>
+          <label className="d-flex mx-2 form-check-label text-tron text-small color-neongreen" htmlFor="checkboxInput"><b>Completed</b></label>
         </div>
         <br/>
-        <button type="submit" className="d-flex mx-auto bg-transparent border-4 border-neonorange rounded-pill text-tron color-neonorange">Add Exercise</button>
+        <button type="submit" className="d-flex box-neongreen mx-auto bg-transparent border-4 shadow-neongreen border-neongreen rounded-pill text-tron color-neongreen">Add Exercise</button>
         <br/>
-        <button onClick={handleClearClick} className="d=flex mx-auto bg-transparent border-4 border-neonorange rounded-pill text-tron color-neonorange">Clear Exercises</button>
+        <button onClick={handleClearClick} className="d-flex box-neongreen mx-auto bg-transparent shadow-neongreen border-4 border-neongreen rounded-pill text-tron color-neongreen">Clear Exercises</button>
 
       </form>
+      
     </div>
   );
 }

@@ -51,7 +51,7 @@
             <ExerciseForm onAddExercise={handleAddExercise} onClear={handleClear}></ExerciseForm>
             <br/>
             <br/>
-            <select className = 'd-flex mx-auto' value={sortOrder} onChange={e => setSortOrder(e.target.value)}>
+            <select className = 'd-flex mx-auto bg-transparent text-tron border-neongreen color-neongreen border-1 box-neongreen shadow-neongreen' value={sortOrder} onChange={e => setSortOrder(e.target.value)}>
               <option value="none">None</option>
               <option value="asc">A-Z</option>
               <option value="desc">Z-A</option>
